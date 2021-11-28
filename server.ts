@@ -1,10 +1,9 @@
-import express from 'express';
+import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { lambdaHandler } from './index';
 
-const app = express()
 const port = 3000
 
-app.get('/', async (req, res) => {
+const server = createServer(async (req: IncomingMessage, res: ServerResponse) => {
     const returnValue = await lambdaHandler(undefined);
     const buff = Buffer.from(returnValue.body, 'base64')
     res.writeHead(200, {
@@ -12,8 +11,9 @@ app.get('/', async (req, res) => {
         'Content-Length': buff.length
     });
     res.end(buff);
-})
+});
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
-})
+});
+
