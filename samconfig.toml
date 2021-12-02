@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "ethereum-cf-widget"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-xipeuueltpk6"
+s3_prefix = "ethereum-cf-widget"
+region = "eu-central-1"
+capabilities = "CAPABILITY_IAM"
+image_repositories = ["EthereumCFWidgetFunction=990283781150.dkr.ecr.eu-central-1.amazonaws.com/ethereumcfwidget86922bd9/ethereumcfwidgetfunctionf0a90103repo"]

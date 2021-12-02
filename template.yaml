@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  EthereumCFWidgetFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      Architectures:
+        - x86_64
+      Events:
+        EthereumCFWidget:
+          Type: HttpApi
+          Properties:
+            Path: /
+            Method: get
+    Metadata:
+      DockerTag: nodejs14.x-v1
+      DockerContext: .
+      Dockerfile: Dockerfile
+
