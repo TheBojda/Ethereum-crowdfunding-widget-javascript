@@ -19,3 +19,7 @@ Resources:
       DockerContext: .
       Dockerfile: Dockerfile
 
+Outputs:
+  EthereumCFWidgetApi:
+    Description: "API Gateway endpoint URL for Prod stage for Ethereum Crowdfunding Widget"
+    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com"
