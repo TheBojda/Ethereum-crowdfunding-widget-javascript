@@ -3,10 +3,15 @@ import { createCanvas, Image } from 'canvas'
 import QRCode from 'qrcode'
 import Web3 from 'web3';
 import config from './config.json'
+// import { AbiItem } from 'web3-utils'
+// import erc20_abi from './erc20_abi.json'
 
 export const lambdaHandler = async (event?: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     const web3 = new Web3(config.PROVIDER_URL)
     const balance = parseInt(await web3.eth.getBalance(config.ETH_ADDRESS))
+
+    // const contract = new web3.eth.Contract(erc20_abi as AbiItem[], config.CONTRACT_ADDRESS)
+    // const balance = await contract.methods.balanceOf(config.ETH_ADDRESS).call()
 
     const canvas = createCanvas(200, 270)
     const ctx = canvas.getContext('2d')

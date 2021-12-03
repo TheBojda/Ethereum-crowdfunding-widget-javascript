@@ -6,7 +6,7 @@ RUN yum -y update \
 && yum -y groupinstall "Development Tools" \
 && yum install -y nodejs gcc-c++ cairo-devel libjpeg-turbo-devel pango-devel giflib-devel zlib-devel librsvg2-devel
 
-COPY index.js package.json config.json ./
+COPY build/index.js package.json config.json erc20_abi.json ./
 
 RUN npm install --only=prod
 
