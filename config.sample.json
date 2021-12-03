@@ -3,5 +3,6 @@
     "PROVIDER_URL": "...",
     "TARGET_VALUE": 10,
     "TEXT": "Send me some ETH",
-    "SYMBOL": "ETH"
+    "SYMBOL": "ETH",
+    "CONTRACT_ADDRESS": "..."
 }
